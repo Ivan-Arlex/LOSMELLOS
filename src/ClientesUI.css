@@ -1,0 +1,137 @@
+.modal-backdrop {
+    position: fixed;
+    /* Fija el elemento a la ventana del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Cubre el 100% del ancho */
+    height: 100%;
+    /* Cubre el 100% del alto */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo negro semi-transparente */
+
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+
+    z-index: 1000;
+    /* Asegura que esté por encima de todo lo demás */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    width: 150%;
+    height: 70%;
+    max-width: 700px;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.clientes-table-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7e651;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    flex-shrink: 0;
+    border-bottom: 2px solid #ccc;
+    border-radius: 10px
+}
+
+.close-bottun{
+     position: absolute; 
+    
+    top: 15px;      
+    right: 15px;    
+    
+    /* Asegurar que esté por encima de todo */
+    z-index: 1000; 
+    
+    /* Estilo visual */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2.5rem; 
+    color: #FF0000;
+}
+
+.modal-body {
+    flex-grow: 1;      /* Permite que ocupe el espacio restante entre el header y el footer */
+    overflow-y: auto;  /* Habilita el scroll vertical */
+    padding: 0 20px;   /* Relleno lateral para separar del borde del modal */
+    margin-bottom: 25px
+}
+
+
+
+ .clientes-table-row {
+    display: flex; /* ✨ CLAVE: Alinea las celdas (divs internos) horizontalmente */
+    justify-content: space-between;
+    padding: 10px 20px; /* Relleno vertical dentro de la fila */
+    border-bottom: 1px solid #eee;
+    
+    /* Pequeño redondeado en la fila completa para el diseño */
+    border-radius: 5px;
+    margin-bottom: 5px; /* Espacio entre filas */
+    font-weight: bold; /* Hacer el texto más notable */
+}
+
+.clientes-table-row:nth-child(odd) {
+    background-color: #f0f0f0; 
+}
+
+/* Filas pares (Even) - Blanco */
+.clientes-table-row:nth-child(even) {
+    background-color: #fff;
+}
+
+.row-col {
+    padding-right: 10px; /* Separación entre datos */
+    white-space: nowrap; /* Evita que el texto largo salte de línea */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Opcional: añade puntos suspensivos si el texto es muy largo */
+}
+
+.nombre { flex: 2; }       
+.apellido { flex: 2; }     
+.ciudad { flex: 2; }     
+.celular { flex: 2; }    
+.cedula { flex: 2; }
+
+.botom{
+    display: flex;
+    justify-content: center;
+     gap: 20px;
+     padding: 20px 0;
+     border-top: 1px solid #ddd; 
+      flex-shrink: 0;
+}
+
+.btn-registrar-cliente,
+.btn-imprimir-reporte{
+    padding: 12px 25px;
+    border-radius: 10px
+    cursor pointer;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 0;   
+}
+
+.btn-registrar-cliente {
+    background-color: #63C762; 
+    color: white; 
+}
+
+.btn-imprimir-reporte {
+    background-color: #F7E651; 
+    color: #333; 
+}

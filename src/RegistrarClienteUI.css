@@ -1,0 +1,116 @@
+.modal-backdrop {
+    position: fixed;        /* Fija el elemento a la ventana del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;            /* Cubre el 100% del ancho */
+    height: 100%;           /* Cubre el 100% del alto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    
+    display: flex;         
+    justify-content: center;/* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+    
+    z-index: 1000;          /* Asegura que esté por encima de todo lo demás */
+}
+
+.modal-content {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    width: 150%;
+    height: 70%;
+    max-width: 700px;
+    
+    display: flex;
+    flex-direction: column; /* Organiza header, body, footer de arriba abajo */
+    position: relative;
+}
+
+
+.modal-header {
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    font-weight: bold;
+}
+
+
+.modal-body {
+   padding: 0;
+}
+
+.registro-form {
+    display: flex; /* <-- ¡CLAVE! Pone columna-izquierda y columna-derecha una al lado de la otra */
+    gap: 30px;     /* Espacio entre las columnas */
+    padding-top: 50px; /* Espacio superior */
+    width: 100%; /* Asegura que el formulario ocupe todo el ancho disponible */
+}
+
+.columna-izquierda {
+  
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el icono y el botón horizontalmente */
+    padding-right: 15px;
+    /* Optional: border-right: 1px solid #eee; para un separador visual */
+    padding-top: 10px;
+}
+
+.icono-usuario-container {
+    /* ✨ CLAVE: Reducir el tamaño aquí */
+    width: 200px;
+    height: 200px;
+    
+    border-radius: 50%; /* Si quieres que el contenedor sea perfectamente circular */
+    overflow: hidden;   /* Asegura que la imagen no se salga del círculo */
+    margin-bottom: 25px; /* Espacio debajo del ícono, antes del botón */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera (opcional) */
+}
+
+/* Asegura que la imagen se ajuste al tamaño de su contenedor */
+.icono-usuario-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+}
+
+/* Estilo para el botón para que se vea bien en la columna */
+.btn-agregar-cliente {
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 60%; /* El botón ocupa todo el ancho de la columna izquierda */
+    text-align: center;
+}
+
+.columna-derecha {
+    flex: 1; /* Le da el doble de espacio que a la izquierda */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* <--- Esto es lo que pone 15px de espacio entre cada .campo-input */
+}
+
+.campo-input {
+    background-color: #f0f0f0; 
+    padding: 8px 12px;           
+    border-radius: 5px;          
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); 
+}
+
+.campo-input input {
+    width: 100%;             
+    border: none;            
+    background: transparent; 
+    outline: none;           
+    font-size: 16px;         
+    color: #333;             
+}

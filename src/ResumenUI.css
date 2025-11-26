@@ -1,0 +1,143 @@
+.modal-backdrop {
+    position: fixed;        /* Fija el elemento a la ventana del navegador */
+    top: 0;
+    left: 0;
+    width: 100%;            /* Cubre el 100% del ancho */
+    height: 100%;           /* Cubre el 100% del alto */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    
+    display: flex;         
+    justify-content: center;/* Centra horizontalmente */
+    align-items: center;    /* Centra verticalmente */
+    
+    z-index: 1000;          /* Asegura que esté por encima de todo lo demás */
+}
+
+.modal-content {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    
+    width: 90%;
+    max-width: 600px;
+    
+    display: flex;
+    flex-direction: column; /* Organiza header, body, footer de arriba abajo */
+    position: relative;
+}
+
+.modal-header {
+    display: flex;             /* 1. Usa Flexbox para alinear título y botón en fila */
+    justify-content: space-between; /* 2. Separa el título y el botón X a los extremos */
+    align-items: center;       /* 3. Alinea verticalmente */
+    border-bottom: 2px solid #eee; /* 4. Línea separadora sutil */
+    padding-bottom: 10px;
+    margin-bottom: 10px;       /* 5. Separación de la tabla de datos */
+}
+
+.modal-header h2 {
+    flex-grow: 1;              /* 1. Permite que el título ocupe casi todo el ancho */
+    text-align: center;        /* 2. Centra el texto "RESUMEN" dentro de ese espacio */
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.8em;          /* 1. Tamaño grande para la 'X' */
+    font-weight: bold;
+    color: #cc0000;            /* 2. Color rojo */
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1; 
+    transition: color 0.2s;
+}
+
+/* Contenedor de la Tabla */
+.summary-table {
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+/* Fila del Encabezado (Naranja) */
+.table-header-row {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ff8c00; /* 🟢 Color Naranja 🟢 */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 15px 10px; 
+}
+
+.header-cell {
+    flex: 1; 
+    text-align: center;
+}
+
+/* Filas de Datos (Gris/Blanco) */
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 10px;
+    font-weight: 500;
+    background-color: #f7f7f7; /* Fondo Gris Claro */
+    border-bottom: 1px solid #eee; 
+}
+
+.data-row:nth-child(even) {
+    background-color: white; /* Filas pares blancas (efecto de rayas) */
+}
+
+.data-cell {
+    flex: 1; 
+    text-align: center;
+}
+
+.modal-footer {
+    display: flex; /* Activa Flexbox */
+    justify-content: center; 
+    padding: 20px 0 10px; /* Espacio arriba, sin espacio a los lados, poco abajo */
+}
+
+.print-button {
+   padding: 16px 80px; 
+    
+    /* Forzamos un ancho mínimo para que "Imprimir Reporte" quepa */
+    min-width: 280px; 
+    
+    font-size: 1.2em;  
+    font-weight: bold; 
+    border: none;  
+    border-radius: 8px; 
+    cursor: pointer;
+
+    /* Colores y Sombra (Azul) */
+    background-color: #3f51b5; 
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    white-space: nowrap; 
+    text-align: center;
+    /* Transiciones (Efecto suave) */
+    transition: background-color 0.3s ease;
+}
+
+.print-button span {
+    display: inline-block; /* Se comporta como un bloque si es necesario */
+    text-align: center;
+    white-space: nowrap;
+}
+
+.print-button:hover {
+    background-color: #303f9f; 
+}

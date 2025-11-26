@@ -1,0 +1,300 @@
+:root {
+    --blue-header: #0056b3; 
+    --text-light: #fff;
+    --text-dark: #333;
+    --button-bg-blue: #007bff;
+    --button-hover-blue: #0056b3;
+    --sidebar-bg: #fff;
+    --sidebar-item-hover: #f0f0f0;
+    --location-tag-bg: #ff4d4d;
+    --location-tag-text: #fff;
+    --overlay-color: rgba(0, 0, 0, 0.4); 
+}
+
+/* Estilos Globales para la estabilidad (normalmente en index.css/App.css) */
+html, body, #root, .App {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Contenedor Principal de InicioUI */
+.inicio-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay para la imagen de fondo */
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: 1;
+}
+
+/* BARRA SUPERIOR (NAVBAR) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue-header);
+    color: var(--text-light);
+    padding: 10px 20px;
+    height: 60px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left, .navbar-right, .navbar-center {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.8em;
+    cursor: pointer;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.user-info span {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.user-role {
+    font-size: 0.8em;
+    font-weight: normal;
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+.navbar-center {
+    flex-grow: 1; 
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.navbar-logo {
+    height: 40px; 
+    margin-right: 10px;
+}
+
+.navbar-app-name {
+    font-size: 1.4em;
+    margin-left: 700px; 
+}
+
+.navbar-icon-button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 1.4em;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 5px;
+}
+
+/* SIDEBAR (MENÚ DESPLEGABLE) */
+.sidebar {
+    position: absolute;
+    top: 60px;
+    left: -250px;
+    width: 250px;
+    height: calc(100vh - 60px); 
+    background-color: var(--sidebar-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease-in-out;
+    z-index: 20; 
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.sidebar.open {
+    left: 0; 
+}
+
+.sidebar-item {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-item:hover {
+    background-color: var(--sidebar-item-hover);
+}
+
+.sidebar-item span {
+    margin-right: 10px; 
+    font-size: 1.2em; 
+}
+
+.logout-item {
+    margin-top: auto; 
+    border-top: 1px solid #eee;
+    color: #e74c3c; 
+}
+.logout-item:hover {
+    background-color: #fdd;
+}
+
+
+/* CONTENIDO PRINCIPAL (SUPERPUESTO A LA IMAGEN DE FONDO) */
+.main-content {
+    position: relative;
+    z-index: 5; 
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; 
+    
+    align-items: center;
+    padding: 20px;
+    color: var(--text-light); 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+/* SECCIÓN DE UBICACIONES */
+.location-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.location-button {
+    background-color: var(--location-tag-bg);
+    color: var(--location-tag-text);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+.location-button:hover {
+    background-color: #e74c3c;
+}
+
+.location-button span {
+    margin-right: 8px;
+}
+
+/* SECCIÓN CENTRAL (TÍTULOS Y LOGO GRANDE) */
+.center-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; 
+    margin-bottom: 40px;
+    flex-wrap: wrap; 
+}
+
+.center-section h1 {
+    font-size: 2.3em; 
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+    min-width: 250px; 
+}
+
+
+.main-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.main-logo {
+    height: 150px; 
+    margin-bottom: 10px;
+}
+
+.main-logo-placeholder {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 5px solid var(--blue-header);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--blue-header);
+    margin-bottom: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-logo-description {
+    font-size: 0.9em;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* IMÁGENES DE PRODUCTOS */
+.product-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px; 
+    flex-wrap: wrap; 
+    width: 100%;
+    max-width: 1000px;
+    margin-top: -5px
+}
+
+.image-card {
+    width: 280px; 
+    height: 200px; 
+    overflow: hidden; 
+}
+
+.product-img-content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 10px; 
+}
