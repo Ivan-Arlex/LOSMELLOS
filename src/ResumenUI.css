@@ -14,7 +14,6 @@
 }
 
 .modal-content {
-<<<<<<< HEAD
    background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -26,18 +25,6 @@
 
     display: flex;
     flex-direction: column;
-=======
-    background-color: white; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    
-    width: 90%;
-    max-width: 600px;
-    
-    display: flex;
-    flex-direction: column; /* Organiza header, body, footer de arriba abajo */
->>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
     position: relative;
 }
 
@@ -45,11 +32,7 @@
     display: flex;             /* 1. Usa Flexbox para alinear título y botón en fila */
     justify-content: space-between; /* 2. Separa el título y el botón X a los extremos */
     align-items: center;       /* 3. Alinea verticalmente */
-<<<<<<< HEAD
     border-bottom: 1px solid #eee; /* 4. Línea separadora sutil */
-=======
-    border-bottom: 2px solid #eee; /* 4. Línea separadora sutil */
->>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
     padding-bottom: 10px;
     margin-bottom: 10px;       /* 5. Separación de la tabla de datos */
 }
@@ -86,15 +69,10 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
 /* Fila del Encabezado (Naranja) */
 .table-header-row {
     display: flex;
     justify-content: space-between;
-<<<<<<< HEAD
     background-color: #f7e651;
     color: #333;
     font-weight: bold;
@@ -109,13 +87,6 @@
     overflow-y: auto;  /* Habilita el scroll vertical */
     padding: 0 20px;   /* Relleno lateral para separar del borde del modal */
     margin-bottom: 25px
-=======
-    background-color: #ff8c00; /* 🟢 Color Naranja 🟢 */
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 15px 10px; 
->>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
 }
 
 .header-cell {
@@ -138,11 +109,7 @@
 }
 
 .data-cell {
-<<<<<<< HEAD
     flex:1; 
-=======
-    flex: 1; 
->>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
     text-align: center;
 }
 
