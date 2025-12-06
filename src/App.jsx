@@ -34,6 +34,7 @@ function App() {
   //Logica para abrir/cerrar ClientesUi
   const opeClientes = () => setMostrarClientes(true);
   const closeClientes = () => setMostrarClientes(false);
+
   const NuevoRegistroCliente = () => {
     closeClientes();
     opeRegistrarCliente();

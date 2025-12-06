@@ -86,7 +86,6 @@ function InicioSesionUI({ onLoginSuccess }) {
           <h2 className="form-title">Iniciar Sesión</h2>
 
           {/* ... (Resto del formulario: Usuario, Contraseña, Checkbox, Botón) ... */}
-
           {/* CAMPO USUARIO */}
           <div className="input-group">
             <label htmlFor="usuario" className="input-label">

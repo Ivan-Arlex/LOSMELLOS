@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import './RegistrarPedidoUI.css';
 
@@ -54,12 +55,57 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
     // 2. Búsqueda de Cliente (GET /api/clientes y filtro local)
     // ----------------------------------------------------------------------
     const buscarCliente = async () => {
+=======
+import React, { useState } from 'react';
+import './RegistrarPedidoUI.css';
+
+// 1. Simulación de Base de Datos de Clientes y Productos
+const clientesDB = [
+    { id: 1, cedula: '76171782', nombre: 'Karen Yulisa Congolino' },
+    { id: 2, cedula: '1263673373', nombre: 'Viviana Hurtado' },
+    { id: 3, cedula: '67745226', nombre: 'Luis David Cabezas' },
+];
+
+const productosDisponibles = [
+    'Mango', 'Pera', 'Mandarina', 'Remolacha', 'Sandía', 'Zámpote'
+];
+
+function RegistrarPedidoUI({ isOpen, onClose }) {
+    if (!isOpen) {
+        return null;
+    }
+
+    // --- Estados para Cliente y Búsqueda ---
+    const [cedulaBusqueda, setCedulaBusqueda] = useState(''); // Valor inicial simulado
+    const [clienteSeleccionado, setClienteSeleccionado] = useState(
+        clientesDB.find(c => c.cedula === '') // Cliente simulado encontrado
+    );
+    const [errorBusqueda, setErrorBusqueda] = useState('');
+    
+    // --- Estados para Ítem de Pedido ---
+    const [productoSeleccionado, setProductoSeleccionado] = useState('');
+    const [unidadesSeleccionadas, setUnidadesSeleccionadas] = useState(''); // Variable para unidades (1-12)
+    const [empaqueSeleccionado, setEmpaqueSeleccionado] = useState('');     // Variable para empaque (Cartones, Guacal)
+    const [nota, setNota] = useState('');
+    const [pedidoItems, setPedidoItems] = useState([]); // Lista de ítems en el pedido
+    
+    // --- Estados para manejar la visualización de la lista de productos ---
+    const [mostrarListaProductos, setMostrarListaProductos] = useState(false);
+    
+    // Array para las opciones de unidades (1 a 12)
+    const opcionesUnidades = Array.from({ length: 12 }, (_, i) => i + 1);
+
+
+    // 2. Función de Búsqueda (Simulando la base de datos)
+    const buscarCliente = () => {
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
         const cedulaLimpia = cedulaBusqueda.trim();
         if (!cedulaLimpia) {
             setErrorBusqueda('Por favor ingrese una cédula.');
             setClienteSeleccionado(null);
             return;
         }
+<<<<<<< HEAD
 
         setErrorBusqueda('');
         setMessage(null);
@@ -128,10 +174,35 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
 
         if (!productoObj) {
             setMessage({ type: 'error', text: 'Producto no válido en la lista de la API. Seleccione de la lista sugerida.' });
+=======
+        
+        const clienteEncontrado = clientesDB.find(
+            c => c.cedula === cedulaLimpia
+        );
+
+        if (clienteEncontrado) {
+            setClienteSeleccionado(clienteEncontrado);
+            setErrorBusqueda('');
+        } else {
+            setErrorBusqueda(`Cliente con cédula ${cedulaLimpia} no encontrado.`);
+            setClienteSeleccionado(null);
+        }
+    };
+    
+    // Función para agregar un ítem al pedido
+    const handleAgregarItem = () => {
+        if (!clienteSeleccionado) {
+            alert('Primero debe seleccionar un cliente.');
+            return;
+        }
+        if (!productoSeleccionado || !unidadesSeleccionadas || !empaqueSeleccionado) {
+            alert('Complete los campos de producto, unidades y empaque.');
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
             return;
         }
 
         const newItem = {
+<<<<<<< HEAD
             id: Date.now(), // ID único para React Key
             productoId: productoObj.producto_id, // ID para el Backend
             productoNombre: productoSeleccionado, // Nombre para el display en Frontend
@@ -226,12 +297,60 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
             <div className="modal-content-pedido">
 
                 <button className="close-button" onClick={onClose}>&times;</button>
+=======
+            id: Date.now(),
+            producto: productoSeleccionado,
+            unidades: unidadesSeleccionadas,
+            empaque: empaqueSeleccionado,
+        };
+        
+        setPedidoItems([...pedidoItems, newItem]);
+        
+        // Limpiar campos de ítem después de agregar
+        setProductoSeleccionado('');
+        setUnidadesSeleccionadas('');
+        setEmpaqueSeleccionado('');
+    };
+    
+    // Función para guardar el pedido completo (simulación)
+    const handleGuardarPedido = () => {
+        if (pedidoItems.length === 0) {
+            alert('El pedido está vacío.');
+            return;
+        }
+        
+        console.log('Pedido Final a Guardar:', {
+            cliente: clienteSeleccionado.nombre,
+            cedula: clienteSeleccionado.cedula,
+            items: pedidoItems,
+            nota: nota 
+        });
+        
+        alert(`Pedido de  ${clienteSeleccionado.nombre} guardado (simulado).`);
+        onClose();
+    };
+    
+
+    const clienteDisplay = clienteSeleccionado 
+        ? `${clienteSeleccionado.cedula} - ${clienteSeleccionado.nombre}`
+        : '';
+
+    return (
+        <div className="modal-backdrop">
+            <div className="modal-content-pedido">
+                
+                 <button className="close-button" onClick={onClose}>&times;</button>
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                 {/* Header */}
                 <div className="modal-header-pedido">
                     <h2>REGISTRADOR PEDIDO</h2>
                 </div>
 
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
 
                 {/* 1. Búsqueda y Display de Cliente */}
                 <div className="cliente-inputs-row">
@@ -247,7 +366,11 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                             🔍
                         </button>
                     </div>
+<<<<<<< HEAD
 
+=======
+                    
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                     {/* Input de Cédula y Nombre Encontrado (No editable) */}
                     <div className="input-group-search"><input
                         type="text"
@@ -261,16 +384,27 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                 {errorBusqueda && <p className="error-message">{errorBusqueda}</p>}
 
                 <div className="pedido-main-layout">
+<<<<<<< HEAD
 
                     {/* Columna Izquierda: PEDIDO y Botón Guardar */}
                     <div className="pedido-col-left">
 
+=======
+                    
+                    {/* Columna Izquierda: PEDIDO y Botón Guardar */}
+                    <div className="pedido-col-left">
+                        
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                         <div className="pedido-box">
                             <p className="box-title">PEDIDO</p>
                             <div className="pedido-items-list">
                                 {pedidoItems.map((item, index) => (
                                     <p key={item.id} className="pedido-item-row">
+<<<<<<< HEAD
                                         {`${item.cantidad} ${item.empaque} de ${item.productoNombre}`}
+=======
+                                        {`${item.unidades} ${item.empaque} ${item.producto}`}
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                                     </p>
                                 ))}
                                 {pedidoItems.length === 0 && <p className="empty-message">El pedido está vacío.</p>}
@@ -278,14 +412,20 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                         </div>
 
                         {/* Botón Guardar Pedido */}
+<<<<<<< HEAD
                         <button
                             className="btn-guardar-pedido"
+=======
+                        <button 
+                            className="btn-guardar-pedido" 
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                             onClick={handleGuardarPedido}
                             disabled={!clienteSeleccionado || pedidoItems.length === 0}
                         >
                             Guardar Pedido
                         </button>
                     </div>
+<<<<<<< HEAD
 
                     {/* Columna Derecha: Selección de Producto y Cantidad */}
                     <div className="pedido-col-right">
@@ -314,6 +454,46 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                         <div className="selectors-row">
                             <select
                                 value={unidadesSeleccionadas}
+=======
+                    
+                    {/* Columna Derecha: Selección de Producto y Cantidad */}
+                    <div className="pedido-col-right">
+                        
+                        {/* Selector de Producto (Input con búsqueda simulada) */}
+                        <div className="input-group-search">
+                             <input 
+                                 type="text" 
+                                 placeholder="Frutas y verduras" 
+                                 value={productoSeleccionado} 
+                                 onChange={(e) => setProductoSeleccionado(e.target.value)}
+                                 onFocus={() => setMostrarListaProductos(true)}
+                                 onBlur={() => setTimeout(() => setMostrarListaProductos(false), 200)} // Pequeño retraso para permitir clic
+                             />
+                             
+                             {/* Lista de Productos (Dropdown simulado) */}
+                             {mostrarListaProductos && (
+                                 <div className="product-dropdown-list">
+                                     {productosDisponibles.filter(p => p.toLowerCase().includes(productoSeleccionado.toLowerCase())).map(p => (
+                                         <div 
+                                             key={p} 
+                                             className="product-dropdown-item"
+                                             onMouseDown={() => { // Usar onMouseDown para capturar el clic antes de onBlur
+                                                 setProductoSeleccionado(p);
+                                                 setMostrarListaProductos(false);
+                                             }}
+                                         >
+                                             {p}
+                                         </div>
+                                     ))}
+                                 </div>
+                             )}
+                        </div>
+                        
+                        {/* Dropdowns de Unidades y Empaque */}
+                        <div className="selectors-row">
+                            <select 
+                                value={unidadesSeleccionadas} 
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                                 onChange={(e) => setUnidadesSeleccionadas(e.target.value)}
                                 className="select-unidades"
                             >
@@ -324,6 +504,20 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                                 ))}
                                 <option value="+">+</option> {/* Opción para más de 12 */}
                             </select>
+<<<<<<< HEAD
+=======
+                            
+                            <select 
+                                value={empaqueSeleccionado} 
+                                onChange={(e) => setEmpaqueSeleccionado(e.target.value)}
+                                className="select-empaque"
+                            >
+                                <option value="" disabled>Empaque</option>
+                                <option value="Cartones">Cartones</option>
+                                <option value="Guacal">Guacal</option>
+                                <option value="Bolsas">Bolsas</option>
+                            </select>
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
                         </div>
 
                         {/* Botón Agregar Ítem */}
@@ -336,11 +530,19 @@ function RegistrarPedidoUI({ userData, isOpen, onClose }) {
                             <p className="box-title">Nota:</p>
                             <textarea value={nota} onChange={(e) => setNota(e.target.value)} rows="4" />
                         </div>
+<<<<<<< HEAD
 
                     </div>
 
                 </div>
 
+=======
+                        
+                    </div>
+                    
+                </div>
+                
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
             </div>
         </div>
     );

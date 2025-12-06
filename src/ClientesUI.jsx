@@ -8,7 +8,6 @@ function ClientesUI({ isOpen, onClose, onRegistrarClienteClick }) {
         return null;
     }
 
-
     // 1. ESTADOS
     const [clientes, setClientes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -123,7 +122,6 @@ function ClientesUI({ isOpen, onClose, onRegistrarClienteClick }) {
         e.preventDefault();
         onRegistrarClienteClick();
     }
-
     return (
         <div className="modal-backdrop">
 
@@ -167,6 +165,7 @@ function ClientesUI({ isOpen, onClose, onRegistrarClienteClick }) {
                     <button
                         className='btn-imprimir-reporte'
                         onClick={handleExportClick}>
+
                         Imprimir Reporte
                     </button>
                 </div>

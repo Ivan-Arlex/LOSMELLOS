@@ -86,7 +86,6 @@ function RegistrarClienteUI({ isOpen, onClose }) {
 
             <div className="modal-content">
 
-
                 <button className="close-button" onClick={onClose}>&times;</button>
                 <div className="modal-header">
                     <h2>Registro Cliente</h2>

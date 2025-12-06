@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import './ResumenUI.css';
 
 
 const API_URL = 'http://localhost:3001/api/resumen';
 
+=======
+import React from 'react';
+import './ResumenUI.css';
+
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
 function ResumenUI({ isOpen, onClose }) {
   if (!isOpen) {
     return null;
   }
+<<<<<<< HEAD
   const [resumenData, setResumenData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -121,6 +128,14 @@ const exportToCSV = () => {
       fetchData();
     }
   }, [isOpen]);
+=======
+
+  const resumenData = [
+    { cantidad: 15, empaque: "Cartones", producto: "Mango", cliente: 'Karen'},
+    { cantidad: 9, empaque: "Bultos", producto: "Papa", cliente: 'Viviana'},
+    { cantidad: 40, empaque: "Bandejas", producto: "Fresa", cliente: 'Luis'},
+  ];
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
 
   return (
     <div className="modal-backdrop">
@@ -132,6 +147,7 @@ const exportToCSV = () => {
           <h2>RESUMEN</h2>
         </div>
 
+<<<<<<< HEAD
         <div className="summary-table">
           <div className="table-header-row">
             <div className="header-cell">Cantidad Total</div>
@@ -153,6 +169,31 @@ const exportToCSV = () => {
           <button className="print-button" translate="no"
            onClick={exportToCSV}
           >Imprimir Reporte</button>
+=======
+        <div className="modal-body">
+          <div className="summary-table">
+
+            <div className="table-header-row">
+              <div className="header-cell">Cantidad</div>
+              <div className="header-cell">Empaques</div>
+              <div className="header-cell">Frutas y Verduras</div>
+              <div className="header-cell">Cliente</div>
+            </div>
+
+            {resumenData.map((item, index) => (
+              <div className="data-row" key={index}>
+                <div className="data-cell">{item.cantidad}</div>
+                <div className="data-cell">{item.empaque}</div>
+                <div className="data-cell">{item.producto}</div>
+                <div className="data-cell">{item.cliente}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="modal-footer">
+          <button className="print-button" translate="no">Imprimir Reporte</button>
+>>>>>>> c5c38a2929f268b610ff3434358e77d8c8156513
         </div>
 
       </div>
