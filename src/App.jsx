@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// Importa los componentes
+//Componentes de las interfaces
 import InicioSesionUI from './InicioSesionUI';
 import InicioUI from './InicioUI';
 import ResumenUI from './ResumenUI';
